@@ -8,8 +8,16 @@ const loadWeatherData = (city) => {
 };
 
 const displayWeatherData = (data) => {
-    const temperature = document.getElementById("temperature");
-    temperature.innerText = data.main.temp;
+    setInnerTextById("temperature", data.main.temp);
 };
 
-loadWeatherData("Dhaka");
+const setInnerTextById = (id, text) => {
+    const element = document.getElementById(id);
+    element.innerText = text;
+};
+
+document.getElementById("btn-search").addEventListener("click", function () {
+    const city = document.getElementById("search-field").value;
+    setInnerTextById("city-name", city);
+    loadWeatherData(city);
+});
