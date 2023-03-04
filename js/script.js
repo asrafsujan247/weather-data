@@ -9,6 +9,8 @@ const loadWeatherData = (city) => {
 
 const displayWeatherData = (data) => {
     setInnerTextById("temperature", data.main.temp);
+    setInnerTextById("condition", data.weather[0].main);
+    // console.log(data);
 };
 
 const setInnerTextById = (id, text) => {
@@ -21,3 +23,5 @@ document.getElementById("btn-search").addEventListener("click", function () {
     setInnerTextById("city-name", city);
     loadWeatherData(city);
 });
+
+loadWeatherData("dhaka");
